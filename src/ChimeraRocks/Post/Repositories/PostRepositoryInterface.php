@@ -1,0 +1,11 @@
+<?php
+
+namespace ChimeraRocks\Post\Repositories;
+
+use ChimeraRocks\Database\Contracts\CriteriaCollectionInterface;
+use ChimeraRocks\Database\Contracts\RepositoryInterface;
+
+interface PostRepositoryInterface extends RepositoryInterface, CriteriaCollectionInterface
+{
+
+}
