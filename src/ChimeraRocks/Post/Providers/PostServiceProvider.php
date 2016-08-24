@@ -24,6 +24,9 @@ class PostServiceProvider extends ServiceProvider
      */
 	public function register()
 	{
-		
+		$this->app->bind(
+			\ChimeraRocks\Category\Models\PostInterface::class,
+				\ChimeraRocks\Post\Models\Post::class
+		);
 	}
 }
