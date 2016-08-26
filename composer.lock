@@ -103,12 +103,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/chimerarocks/laravel-tinymce.git",
-                "reference": "1bb4baf9f63b0747414d86c3909f3cdd82642557"
+                "reference": "5e7dfe8dd269abc896879808547c5f88213430bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/chimerarocks/laravel-tinymce/zipball/1bb4baf9f63b0747414d86c3909f3cdd82642557",
-                "reference": "1bb4baf9f63b0747414d86c3909f3cdd82642557",
+                "url": "https://api.github.com/repos/chimerarocks/laravel-tinymce/zipball/5e7dfe8dd269abc896879808547c5f88213430bd",
+                "reference": "5e7dfe8dd269abc896879808547c5f88213430bd",
                 "shasum": ""
             },
             "type": "library",
@@ -141,7 +141,7 @@
             "support": {
                 "source": "https://github.com/chimerarocks/laravel-tinymce/tree/master"
             },
-            "time": "2016-08-26 17:29:38"
+            "time": "2016-08-26 18:41:59"
         },
         {
             "name": "classpreloader/classpreloader",
