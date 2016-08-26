@@ -39,8 +39,7 @@ class AdminPostController extends Controller
 	public function edit($id)
 	{
 		$post = $this->postRepository->find($id);
-		$posts = $this->postRepository->all();
-		return $this->response->view('chimerapost::edit', compact('post', 'posts'));
+		return $this->response->view('chimerapost::edit', compact('post'));
 	}
 
 	public function update(Request $request, $id)

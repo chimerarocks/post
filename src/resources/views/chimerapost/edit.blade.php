@@ -8,23 +8,13 @@
 		{!! Form::open(['method' => 'post', 'route' => ['admin.posts.update', $post->id]]) !!}
 
 		<div class="form-group">
-			{!! Form::label('Parent', 'Parent:') !!}
-			<select name="parent_id" class="form-control">
-				<option value="">-None-</option>
-				@foreach($posts as $post)
-					<option value="{{$post->id}}">{{$post->name}}</option>
-				@endforeach
-			</select>
-		</div>
-
-		<div class="form-group">
 			{!! Form::label('Title', 'Title:') !!}
-			{!! Form::text('title', null, ['class' => 'form-control']) !!}
+			{!! Form::text('title', $post->title, ['class' => 'form-control']) !!}
 		</div>
 
 		<div class="form-group">
 			{!! Form::label('Content', 'Content:') !!}
-			{!! Form::textarea('content', null, ['class' => 'form-control']) !!}
+			{!! Form::textarea('content', $post->content, ['class' => 'form-control']) !!}
 		</div>
 
 		<div class="form-group">

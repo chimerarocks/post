@@ -8,16 +8,6 @@
 		{!! Form::open(['method' => 'post', 'route' => ['admin.posts.store']]) !!}
 
 		<div class="form-group">
-			{!! Form::label('Parent', 'Parent:') !!}
-			<select name="parent_id" class="form-control">
-				<option value="">-None-</option>
-				@foreach($posts as $post)
-					<option value="{{$post->id}}">{{$post->title}}</option>
-				@endforeach
-			</select>
-		</div>
-
-		<div class="form-group">
 			{!! Form::label('Title', 'Title:') !!}
 			{!! Form::text('title', null, ['class' => 'form-control']) !!}
 		</div>
