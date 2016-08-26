@@ -33,5 +33,9 @@ class PostServiceProvider extends ServiceProvider
 			\ChimeraRocks\Post\Repositories\PostRepositoryInterface::class,
 				\ChimeraRocks\Post\Repositories\PostRepositoryEloquent::class
 		);
+
+		$this->app->register(
+			\Ktquez\Tinymce\TinymceServiceProvider::class
+		);
 	}
 }

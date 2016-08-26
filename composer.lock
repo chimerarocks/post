@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f9999e89d76a09e86cf78d22d196c08f",
-    "content-hash": "248f28e08d2354a5eff4a812dcf4fdbd",
+    "hash": "1551c87635615355ee768b3baf079680",
+    "content-hash": "8454cff3fa45876d3ea368d5a74c0c0c",
     "packages": [
         {
             "name": "chimerarocks/category",
@@ -96,6 +96,52 @@
             ],
             "description": "A Repository pattern implementation library that was part of a Code Education course. But i decide to keep with the project.",
             "time": "2016-08-20 00:33:49"
+        },
+        {
+            "name": "chimerarocks/laravel-tinymce",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/chimerarocks/laravel-tinymce.git",
+                "reference": "1bb4baf9f63b0747414d86c3909f3cdd82642557"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/chimerarocks/laravel-tinymce/zipball/1bb4baf9f63b0747414d86c3909f3cdd82642557",
+                "reference": "1bb4baf9f63b0747414d86c3909f3cdd82642557",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ktquez\\Tinymce\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alan Albuquerque: ktquez",
+                    "website": "http://ktquez.com",
+                    "email": "ktquez@gmail.com"
+                }
+            ],
+            "description": "TinyMCE editor for Laravel and Lumen Framework",
+            "homepage": "https://github.com/ktquez/laravel-tinymce",
+            "keywords": [
+                "WYSIWYG",
+                "ckeditor",
+                "editor",
+                "laravel",
+                "lumen",
+                "textarea",
+                "tinymce"
+            ],
+            "support": {
+                "source": "https://github.com/chimerarocks/laravel-tinymce/tree/master"
+            },
+            "time": "2016-08-26 17:29:38"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -3668,7 +3714,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "chimerarocks/laravel-tinymce": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
