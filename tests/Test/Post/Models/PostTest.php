@@ -158,4 +158,16 @@ class PostTest extends AbstactTestCase
 		$this->assertEquals('my post 1', $posts[0]->title);
 		$this->assertEquals('my post 2', $posts[1]->title);
 	}
+
+	public function test_can_create_comments()
+	{
+		$post = Post::create(['title' => 'my post 1', 'content' => 'Content']);
+		$post->comments()->create(['content' => 'comment 1']);
+		$post->comments()->create(['content' => 'comment 2']);
+
+		$comments = Post::find(1)->comments;
+		$this->assertCount(2, $comments);
+		$this->assertEquals('comment 1', $comments[0]->content);
+		$this->assertEquals('comment 2', $comments[1]->content);
+	}
 }

@@ -2,33 +2,21 @@
 
 namespace ChimeraRocks\Post\Models;
 
-use ChimeraRocks\Category\Models\Category;
-use ChimeraRocks\Post\Models\Comment;
-use Cviebrock\EloquentSluggable\SluggableInterface;
-use Cviebrock\EloquentSluggable\SluggableTrait;
+use ChimeraRocks\Post\Models\Post;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model implements SluggableInterface
+class Comment extends Model
 {
-	use SluggableTrait;
-
 	private $validator;
 	
 	public $errors;
 
-	protected $table = "chimerarocks_posts";
-
-	protected $sluggable = [
-		'build_from' => 'title',
-		'save_to' => 'slug',
-		'unique' => 'true'
-	];
+	protected $table = "chimerarocks_comments";
 
 	protected $fillable = [
-		'slug',
-		'title',
 		'content',
+		'post_id'
 	];
 
 	public function setValidator(Validator $validator)
@@ -45,7 +33,6 @@ class Post extends Model implements SluggableInterface
 	{
 		$validator = $this->validator;
 		$validator->setRules([
-			'title' => 'required|max:255',
 			'content' => 'required'
 		]);
 		$validator->setData($this->attributes);
@@ -57,13 +44,8 @@ class Post extends Model implements SluggableInterface
 		return true;
 	}
 
-	public function categories()
+	public function post()
 	{
-		return $this->morphToMany(Category::class, 'categorizable', 'chimerarocks_categorizables');
-	}
-
-	public function comments()
-	{
-		return $this->hasMany(Comment::class);
+		return $this->belongsTo(Post::class);
 	}
 }
