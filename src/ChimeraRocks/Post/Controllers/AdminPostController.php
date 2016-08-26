@@ -44,6 +44,7 @@ class AdminPostController extends Controller
 
 	public function update(Request $request, $id)
 	{
+		$data = $request->all();
 		$post = $this->postRepository->update($data, $id);
 
 		return redirect()->route('admin.posts.index');
