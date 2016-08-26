@@ -14,7 +14,9 @@
 
 		<div class="form-group">
 			{!! Form::label('Content', 'Content:') !!}
-			{!! Form::textarea('content', null, ['class' => 'form-control']) !!}
+			{-- Form::textarea('content', null, ['class' => 'form-control']) --}
+			<textarea name="content" class="tinymce"></textarea>
+			@include('tinymce::tpl')
 		</div>
 
 		<div class="form-group">
