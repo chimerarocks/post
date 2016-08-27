@@ -11,5 +11,4 @@ Route::group([
 	Route::post('/store', ['uses' => 'AdminPostController@store', 'as' => 'store']);
 	Route::get('/edit/{id}', ['uses' => 'AdminPostController@edit', 'as' => 'edit']);
 	Route::post('/update/{id}', ['uses' => 'AdminPostController@update', 'as' => 'update']);
-	
 });
