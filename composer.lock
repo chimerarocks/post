@@ -4,25 +4,26 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a8bc00eb74ce4a55c60616f7e6497161",
-    "content-hash": "aec5455d741b86052080b312990cb254",
+    "hash": "5ed91e2453eb2a0ccb3ccfb91a479861",
+    "content-hash": "0d84e4d33a2c016c8005209f72de998a",
     "packages": [
         {
             "name": "chimerarocks/category",
-            "version": "0.1.2",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/chimerarocks/category.git",
-                "reference": "3567982533920b94cd4a83bb9827d26de1ff5e15"
+                "reference": "a4ad0c356455ff0feedf399e7a237d25be466355"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/chimerarocks/category/zipball/3567982533920b94cd4a83bb9827d26de1ff5e15",
-                "reference": "3567982533920b94cd4a83bb9827d26de1ff5e15",
+                "url": "https://api.github.com/repos/chimerarocks/category/zipball/a4ad0c356455ff0feedf399e7a237d25be466355",
+                "reference": "a4ad0c356455ff0feedf399e7a237d25be466355",
                 "shasum": ""
             },
             "require": {
                 "chimerarocks/database": "0.0.*",
+                "chimerarocks/user": "~0.1",
                 "cviebrock/eloquent-sluggable": "~3.0",
                 "illuminate/contracts": "~5.2",
                 "illuminate/database": "~5.2",
@@ -44,7 +45,7 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2016-08-24 00:50:55"
+            "time": "2016-09-10 20:36:43"
         },
         {
             "name": "chimerarocks/database",
@@ -142,6 +143,41 @@
                 "source": "https://github.com/chimerarocks/laravel-tinymce/tree/master"
             },
             "time": "2016-08-26 18:41:59"
+        },
+        {
+            "name": "chimerarocks/user",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/chimerarocks/user.git",
+                "reference": "aea69988c8d164869c6e7df889ed1db752cddafb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/chimerarocks/user/zipball/aea69988c8d164869c6e7df889ed1db752cddafb",
+                "reference": "aea69988c8d164869c6e7df889ed1db752cddafb",
+                "shasum": ""
+            },
+            "require": {
+                "chimerarocks/database": "0.0.2",
+                "illuminate/auth": "~5.2",
+                "illuminate/support": "~5.2",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9.2",
+                "orchestra/testbench": "~3.2.0",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ChimeraRocks\\User\\": "src/ChimeraRocks/User",
+                    "Test\\": "tests/Test"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "time": "2016-09-10 20:19:43"
         },
         {
             "name": "classpreloader/classpreloader",

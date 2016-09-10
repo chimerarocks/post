@@ -8,8 +8,8 @@
 		"illuminate/database": "~5.2",
 		"illuminate/validation": "~5.2",
 		"cviebrock/eloquent-sluggable": "~3.0",
-		"chimerarocks/database": "0.0.2",
-		"chimerarocks/category": "0.1.2",
+		"chimerarocks/database": "~0.0",
+		"chimerarocks/category": "~0.3",
 		"chimerarocks/laravel-tinymce": "dev-master"
 	},
 	"require-dev": {
