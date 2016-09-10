@@ -150,10 +150,11 @@ class PostTest extends AbstactTestCase
 		$categories = Category::all();
 
 		$this->assertCount(1, $categories);
-
 		$this->assertEquals('Category', $post->categories->first()->name);
 		$this->assertEquals('Category', $post2->categories->first()->name);
+
 		$posts = Category::find(1)->posts;
+
 		$this->assertCount(2, $posts);
 		$this->assertEquals('my post 1', $posts[0]->title);
 		$this->assertEquals('my post 2', $posts[1]->title);
@@ -164,10 +165,58 @@ class PostTest extends AbstactTestCase
 		$post = Post::create(['title' => 'my post 1', 'content' => 'Content']);
 		$post->comments()->create(['content' => 'comment 1']);
 		$post->comments()->create(['content' => 'comment 2']);
-
 		$comments = Post::find(1)->comments;
+
 		$this->assertCount(2, $comments);
 		$this->assertEquals('comment 1', $comments[0]->content);
 		$this->assertEquals('comment 2', $comments[1]->content);
+	}
+
+	public function test_can_soft_delete()
+	{
+		$post = Post::create(['title' => 'my post 1', 'content' => 'Content']);
+		$post->delete();
+
+		$this->assertTrue($post->trashed());
+		$this->assertCount(0, Post::all());
+	}
+
+	public function test_can_get_rows_deleted()
+	{
+		$post = Post::create(['title' => 'my post 1', 'content' => 'Content']);
+		$post2 = Post::create(['title' => 'my post 2', 'content' => 'Content']);
+		$post->delete();
+		$posts = Post::onlyTrashed()->get();
+
+		$this->assertCount(1, $posts);	
+	}
+
+	public function test_can_get_rows_deleted_and_activated()
+	{
+		$post = Post::create(['title' => 'my post 1', 'content' => 'Content']);
+		$post2 = Post::create(['title' => 'my post 2', 'content' => 'Content']);
+		$post->delete();
+		$posts = Post::withTrashed()->get();
+
+		$this->assertCount(2, $posts);	
+	}
+
+	public function test_can_force_delete()
+	{
+		$post = Post::create(['title' => 'my post 1', 'content' => 'Content']);
+		$post->forceDelete();
+		$posts = Post::withTrashed()->get();
+
+		$this->assertCount(0, $posts);	
+	}
+
+	public function test_can_restore_rows_trashed()
+	{
+		$post = Post::create(['title' => 'my post 1', 'content' => 'Content']);
+		$post->delete();
+		$post->restore();
+		$posts = Post::all();
+
+		$this->assertCount(1, $posts);	
 	}
 }

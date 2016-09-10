@@ -113,4 +113,51 @@ class CommentTest extends AbstactTestCase
 		$comment->content = null;
 		$this->assertFalse($comment->isValid());
 	}
+
+	public function test_can_delete_all_from_relationship()
+	{
+		$post = Post::create(['title' => 'my post 1', 'content' => 'Content']);
+		$comment = Comment::create(['content' => 'Comment Content','post_id' => $post->id]);
+		$comment2 = Comment::create(['content' => 'Comment Content','post_id' => $post->id]);
+		$post->comments()->delete();
+
+		$this->assertCount(0, $post->comments);	
+
+		$comment = Comment::create(['content' => 'Comment Content','post_id' => $post->id]);
+		$comment2 = Comment::create(['content' => 'Comment Content','post_id' => $post->id]);
+		$post->comments()->forceDelete();
+
+		$this->assertCount(0, $post->comments);	
+	}
+
+	public function test_can_restore_all_from_relationship()
+	{
+		$post = Post::create(['title' => 'my post 1', 'content' => 'Content']);
+		$comment = Comment::create(['content' => 'Comment Content','post_id' => $post->id]);
+		$comment2 = Comment::create(['content' => 'Comment Content','post_id' => $post->id]);
+		$post->comments()->delete();
+		$post->comments()->restore();
+
+		$this->assertCount(2, $post->comments);	
+	}
+
+	public function test_cannot_restore_all_from_relationship_when_forcedeleted()
+	{
+		$post = Post::create(['title' => 'my post 1', 'content' => 'Content']);
+		$comment = Comment::create(['content' => 'Comment Content','post_id' => $post->id]);
+		$comment2 = Comment::create(['content' => 'Comment Content','post_id' => $post->id]);
+		$post->comments()->forceDelete();
+		$post->comments()->restore();
+
+		$this->assertCount(0, $post->comments);	
+	}
+
+	public function test_can_find_the_model_deleted_from_relationship()
+	{
+		$post = Post::create(['title' => 'my post 1', 'content' => 'Content']);
+		$comment = Comment::create(['content' => 'Comment Content','post_id' => $post->id]);
+		$post->delete();
+		$comment = Comment::find(1);
+		$this->assertEquals('my post 1', $comment->post->title);
+	}
 }

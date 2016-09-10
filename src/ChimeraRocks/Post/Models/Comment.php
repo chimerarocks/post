@@ -5,14 +5,19 @@ namespace ChimeraRocks\Post\Models;
 use ChimeraRocks\Post\Models\Post;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Comment extends Model
 {
+	use SoftDeletes;
+
 	private $validator;
 	
 	public $errors;
 
 	protected $table = "chimerarocks_comments";
+
+	protected $dates = ['deleted_at'];
 
 	protected $fillable = [
 		'content',
@@ -46,6 +51,6 @@ class Comment extends Model
 
 	public function post()
 	{
-		return $this->belongsTo(Post::class);
+		return $this->belongsTo(Post::class)->withTrashed();
 	}
 }

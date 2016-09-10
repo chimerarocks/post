@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1551c87635615355ee768b3baf079680",
-    "content-hash": "8454cff3fa45876d3ea368d5a74c0c0c",
+    "hash": "a8bc00eb74ce4a55c60616f7e6497161",
+    "content-hash": "aec5455d741b86052080b312990cb254",
     "packages": [
         {
             "name": "chimerarocks/category",

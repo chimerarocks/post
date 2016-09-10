@@ -1,7 +1,8 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
+use ChimeraRocks\Post\Models\Post;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateChimerarocksPostsTable
 {
@@ -12,6 +13,7 @@ class CreateChimerarocksPostsTable
 			$table->string('title');
 			$table->string('slug');
 			$table->text('content');
+			$table->integer('state')->default(Post::STATE_DRAFT);
 			$table->timestamps();
 		});
 	}

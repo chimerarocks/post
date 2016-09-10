@@ -12,4 +12,12 @@ class PostRepositoryEloquent extends AbstractEloquentRepository implements PostR
 	{
 		return Post::class;
 	}
+
+	public function updateState($id, $state)
+	{
+		$post = $this->find($id);
+		$post->state = $state;
+		$post->save();
+		return $post;
+	}
 }

@@ -49,4 +49,10 @@ class AdminPostController extends Controller
 
 		return redirect()->route('admin.posts.index');
 	}
+
+	public function updateState(Request $request, $id)
+	{
+		$this->repository->updateState($id, $request->get('state'));
+		return redirect()->route('admin.posts.edit', $id);
+	}
 }

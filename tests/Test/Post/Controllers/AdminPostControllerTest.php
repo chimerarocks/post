@@ -6,6 +6,7 @@ use ChimeraRocks\Post\Controllers\AdminPostController;
 use ChimeraRocks\Post\Controllers\Controller;
 use ChimeraRocks\Post\Repositories\PostRepositoryEloquent;
 use Illuminate\Contracts\Routing\ResponseFactory;
+use Illuminate\Support\Facades\Auth;
 use Mockery;
 use Test\AbstactTestCase;
 

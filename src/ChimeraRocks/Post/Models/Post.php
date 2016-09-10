@@ -8,16 +8,22 @@ use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model implements SluggableInterface
 {
-	use SluggableTrait;
+	use SluggableTrait, SoftDeletes;
+
+	const STATE_PUBLISH = 1;
+	const STATE_DRAFT = 2;
 
 	private $validator;
 	
 	public $errors;
 
 	protected $table = "chimerarocks_posts";
+
+	protected $dates = ['deleted_at'];
 
 	protected $sluggable = [
 		'build_from' => 'title',
