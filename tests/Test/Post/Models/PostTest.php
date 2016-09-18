@@ -6,7 +6,6 @@ use ChimeraRocks\Category\Models\Category;
 use ChimeraRocks\Category\Repositories\CategoryRepositoryEloquent;
 use ChimeraRocks\Post\Models\Post;
 use ChimeraRocks\Post\Repositories\PostRepositoryEloquent;
-use Illuminate\Support\Facades\App;
 use Illuminate\Validation\Validator;
 use Mockery;
 use Test\AbstactTestCase;
