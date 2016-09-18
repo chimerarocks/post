@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5ed91e2453eb2a0ccb3ccfb91a479861",
-    "content-hash": "0d84e4d33a2c016c8005209f72de998a",
+    "hash": "b5730882ccfc5ca8a7c226acdaeb75e8",
+    "content-hash": "b6fe65f862dadd496adb754244da4068",
     "packages": [
         {
             "name": "chimerarocks/category",
-            "version": "0.3.0",
+            "version": "0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/chimerarocks/category.git",
-                "reference": "a4ad0c356455ff0feedf399e7a237d25be466355"
+                "reference": "80b69c3c74aed7c1d3e66597f9f6d8a67b303208"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/chimerarocks/category/zipball/a4ad0c356455ff0feedf399e7a237d25be466355",
-                "reference": "a4ad0c356455ff0feedf399e7a237d25be466355",
+                "url": "https://api.github.com/repos/chimerarocks/category/zipball/80b69c3c74aed7c1d3e66597f9f6d8a67b303208",
+                "reference": "80b69c3c74aed7c1d3e66597f9f6d8a67b303208",
                 "shasum": ""
             },
             "require": {
@@ -45,7 +45,7 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2016-09-10 20:36:43"
+            "time": "2016-09-18 16:55:01"
         },
         {
             "name": "chimerarocks/database",

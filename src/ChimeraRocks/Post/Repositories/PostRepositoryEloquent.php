@@ -2,9 +2,9 @@
 
 namespace ChimeraRocks\Post\Repositories;
 
+use ChimeraRocks\Category\Criterias\Eloquent\FindByCategoryCriteria;
 use ChimeraRocks\Category\Repositories\CategoryRepositoryInterface;
 use ChimeraRocks\Post\Models\Post;
-use ChimeraRocks\Post\Repositories\PostRepositoryInterface;
 use ChimeraRocks\Database\AbstractEloquentRepository;
 
 class PostRepositoryEloquent extends AbstractEloquentRepository implements PostRepositoryInterface
@@ -40,10 +40,11 @@ class PostRepositoryEloquent extends AbstractEloquentRepository implements PostR
 		$post->save();
 		return $post;
 	}
-	
-	public function findByCategory($id)
+
+	public function findByCategory($id, $columns = ['*'])
 	{
-		$category = $this->categoryRepository->find($id);
-		return $category->morphedByMany($this->model, 'categorizable', 'chimerarocks_categorizables')->get();
+		$this->clearCriteria();
+		$this->getByCriteria(new FindByCategoryCriteria($id));
+		return $this->all($columns);
 	}
 }
