@@ -8,4 +8,6 @@ use ChimeraRocks\Database\Contracts\RepositoryInterface;
 interface PostRepositoryInterface extends RepositoryInterface, CriteriaCollectionInterface
 {
 	public function updateState($id, $state);
+
+	public function findByCategory($id);
 }

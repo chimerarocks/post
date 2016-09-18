@@ -3,7 +3,9 @@
 namespace Test\Post\Models;
 
 use ChimeraRocks\Category\Models\Category;
+use ChimeraRocks\Category\Repositories\CategoryRepositoryEloquent;
 use ChimeraRocks\Post\Models\Post;
+use ChimeraRocks\Post\Repositories\PostRepositoryEloquent;
 use Illuminate\Support\Facades\App;
 use Illuminate\Validation\Validator;
 use Mockery;
@@ -148,7 +150,10 @@ class PostTest extends AbstactTestCase
 		$this->assertEquals('Category', $post->categories->first()->name);
 		$this->assertEquals('Category', $post2->categories->first()->name);
 
-		$posts = Category::find(1)->posts;
+		$categoryRepository = new CategoryRepositoryEloquent();
+		$postRepository = new PostRepositoryEloquent($categoryRepository);
+
+		$posts = $postRepository->findByCategory(1);
 
 		$this->assertCount(2, $posts);
 		$this->assertEquals('my post 1', $posts[0]->title);
