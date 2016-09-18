@@ -15,11 +15,6 @@ class CommentTest extends AbstactTestCase
 	{
 		parent::setUp();
 		$this->migrate();
-		App::bind(
-	    	\ChimeraRocks\Category\Models\Contracts\PostInterface::class, function () {
-				return \ChimeraRocks\Post\Models\Post::class;
-	    	}
-		);
 	}
 
 	public function __construct()
